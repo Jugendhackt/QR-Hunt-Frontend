@@ -1,7 +1,7 @@
-import { Html5QrcodeScanner } from "html5-qrcode";
+import { Html5QrcodeScanner } from 'html5-qrcode';
 import React from 'react';
 
-const qrcodeRegionId = "html5qr-code-full-region";
+const qrcodeRegionId = 'html5qr-code-full-region';
 
 class Html5QrcodePlugin extends React.Component {
     render() {
@@ -12,7 +12,7 @@ class Html5QrcodePlugin extends React.Component {
         // TODO(mebjas): See if there is a better way to handle
         //  promise in `componentWillUnmount`.
         this.html5QrcodeScanner.clear().catch(error => {
-            console.error("Failed to clear html5QrcodeScanner. ", error);
+            console.error('Failed to clear html5QrcodeScanner. ', error);
         });
     }
 
@@ -40,7 +40,7 @@ class Html5QrcodePlugin extends React.Component {
 
         // Suceess callback is required.
         if (!(this.props.qrCodeSuccessCallback )) {
-            throw "qrCodeSuccessCallback is required callback.";
+            throw 'qrCodeSuccessCallback is required callback.';
         }
 
         this.html5QrcodeScanner = new Html5QrcodeScanner(

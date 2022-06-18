@@ -1,5 +1,5 @@
-import { Text } from "@mantine/core"
-import { NavBar } from "../components/NavBar"
+import { Text } from '@mantine/core'
+import { NavBar } from '../components/NavBar'
 
 
 const IndexPage = () => (
