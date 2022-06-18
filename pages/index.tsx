@@ -25,8 +25,8 @@ const IndexPage = () => {
             </div>
             <div className="flex">
                 <div className="mt-32 mx-10">
-                    <h1 className="text-4xl font-bold" style={{fontFamily:"'Comfortaa'"}}>See the QR-Codes you found</h1>
-                    <p className="mt-5">You can see and share the progress with your friends and see your Codes on the dashboard.</p>
+                    <h1 className="text-4xl font-bold" style={{fontFamily:"'Comfortaa'"}}>Explore new Sights</h1>
+                    <p className="mt-5">QR-Hunt is a reinvented way to explore a city. View your favourite sights while playing a game.</p>
                 </div>
                 <img className="w-36 mt-10" src="/assets/sight.png"></img>
             </div>
