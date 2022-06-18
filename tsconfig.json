@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "components/Html5QrcodePlugin.jsx"  ],
   "exclude": [
     "node_modules"
   ]
