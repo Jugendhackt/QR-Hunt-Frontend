@@ -10,7 +10,7 @@ import { submitQrcode } from '../lib/submitQrcode'
 
 const Scan = () => {
 
-    const [scanned,setScanned] = useState(true);
+    const [scanned,setScanned] = useState(false);
 
     function onNewScanResult(decodedText, decodedResult) {
         setScanned(true)
