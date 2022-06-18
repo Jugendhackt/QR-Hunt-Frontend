@@ -4,12 +4,14 @@ import { CameraOff } from "tabler-icons-react"
 import { NavBar } from "../components/NavBar"
 import { useState } from "react"
 import Html5QrcodePlugin from "../components/Html5QrcodePlugin"
+import { hash } from "../lib/hash"
 
 const Scan = () => {
 
     function onNewScanResult(decodedText, decodedResult) {
         // Handle the result here.
         console.log(decodedText)
+        console.log(hash(decodedText))
     }
 
     return (
