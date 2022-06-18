@@ -9,5 +9,5 @@ export function hash(key:string){
         hash = hash & hash;
     }
 
-    return hash
+    return Math.abs(hash)
 }
