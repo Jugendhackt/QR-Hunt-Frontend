@@ -1,10 +1,11 @@
 import { Button } from "@mantine/core"
 import Image from "next/image"
-import { CameraOff } from "tabler-icons-react"
+import { ArrowBack, CameraOff } from "tabler-icons-react"
 import { NavBar } from "../components/NavBar"
 import { useState } from "react"
 import Html5QrcodePlugin from "../components/Html5QrcodePlugin"
 import { hash } from "../lib/hash"
+import { useRouter } from "next/router"
 
 const Scan = () => {
 
@@ -13,6 +14,8 @@ const Scan = () => {
         console.log(decodedText)
         console.log(hash(decodedText))
     }
+
+    const router = useRouter();
 
     return (
         <>
@@ -25,8 +28,8 @@ const Scan = () => {
                     disableFlip={false}
                     qrCodeSuccessCallback={onNewScanResult}
                 />
-                <Button variant="filled" color="blue" className="mt-10">
-                    <CameraOff></CameraOff>
+                <Button variant="filled" color="blue" className="mt-10" onClick={() => router.push("/")}>
+                    <ArrowBack></ArrowBack>
                 </Button>
             </div>
         </>
