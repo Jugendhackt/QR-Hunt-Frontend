@@ -19,14 +19,14 @@ const IndexPage = () => {
             <div className="flex">
                 <img className="w-36 mt-10" src="/assets/location_phone.png"></img>
                 <div className="mt-32 mx-10">
-                    <h1 className="text-4xl font-bold" style={{fontFamily:"'Comfortaa'"}}>See the QR-Codes you found</h1>
-                    <p className="mt-5">You can see and share the progress with your friends and see your Codes on the dashboard.</p>
+                    <h1 className="text-4xl font-bold" style={{fontFamily:"'Comfortaa'"}}>Sehe, wo du überall schon warst</h1>
+                    <p className="mt-5">Du kannst im Dashboard sehen, wie viele QR-Codes du gefunden hast und wo diese sich befinden.</p>
                 </div>
             </div>
             <div className="flex">
                 <div className="mt-32 mx-10">
-                    <h1 className="text-4xl font-bold" style={{fontFamily:"'Comfortaa'"}}>Explore new Sights</h1>
-                    <p className="mt-5">QR-Hunt is a reinvented way to explore a city. View your favourite sights while playing a game.</p>
+                    <h1 className="text-4xl font-bold" style={{fontFamily:"'Comfortaa'"}}>Erkunde neue Orte</h1>
+                    <p className="mt-5">QR-Hunt ist eine neue Art, eine Stadt zu besichtigen. Gucke dich um, während du ein Spiel spielst.</p>
                 </div>
                 <img className="w-36 mt-10" src="/assets/sight.png"></img>
             </div>
