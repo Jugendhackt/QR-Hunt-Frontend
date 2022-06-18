@@ -12,15 +12,15 @@ const IndexPage = () => {
                 <h1 className="mt-32 text-center text-3xl font-bold" style={{fontFamily:"'Comfortaa'"}}>Endlich rausgehen<br></br> mit einem Ziel</h1>
                 <p className="text-center my-5">QR-Hunt motiviert dich, wieder an die frische Luft zu gehen mit einem spaßigem Schnitzeljagd System. </p>
                 <div className="flex">
-                    <Button className="mt-5" style={{fontFamily:"'Comfortaa'"}} onClick={() => router.push("/scan")}>Account erstellen</Button>
-                    <Button className="ml-3 mt-5" style={{fontFamily:"'Comfortaa'"}} color="green" onClick={() => router.push("/scan")}>Einloggen</Button>
+                    <Button className="mt-5" style={{fontFamily:"'Comfortaa'"}} onClick={() => router.push("/signup")}>Account erstellen</Button>
+                    <Button className="ml-3 mt-5" style={{fontFamily:"'Comfortaa'"}} color="green" onClick={() => router.push("/login")}>Einloggen</Button>
                 </div>
             </div>
             <div className="flex">
                 <img className="w-36 mt-10" src="/assets/location_phone.png"></img>
                 <div className="mt-32 mx-10">
                     <h1 className="text-4xl font-bold" style={{fontFamily:"'Comfortaa'"}}>Sehe, wo du überall schon warst</h1>
-                    <p className="mt-5">Du kannst im Dashboard sehen, wie viele QR-Codes du gefunden hast und wo diese sich befinden.</p>
+                    <p className="mt-16">Du kannst im Dashboard sehen, wie viele QR-Codes du gefunden hast und wo diese sich befinden.</p>
                 </div>
             </div>
             <div className="flex">

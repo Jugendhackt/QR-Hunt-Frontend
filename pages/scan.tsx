@@ -7,14 +7,22 @@ import Html5QrcodePlugin from '../components/Html5QrcodePlugin'
 import { hash } from '../lib/hash'
 import { useRouter } from 'next/router'
 import { submitQrcode } from '../lib/submitQrcode'
+import { parseQr } from '../lib/parseQr'
 
 const Scan = () => {
-
     const [scanned,setScanned] = useState(false);
+    const [title,setTitle] = useState("");
+    const [image,setImage] = useState("");
+    const [description, setDescription] = useState("");
 
     function onNewScanResult(decodedText, decodedResult) {
         setScanned(true)
-        submitQrcode(1,hash(decodedText))
+        console.log(decodedText)
+        submitQrcode(decodedText)
+        const qrdata = parseQr(decodedText)
+        setImage(qrdata.imageurl)
+        setTitle(qrdata.title)
+        setDescription(qrdata.description)
     }
 
     
@@ -25,7 +33,7 @@ const Scan = () => {
         <>
             <NavBar />
             <br></br>
-            <div className='mx-20 mt-40 grid place-items-center'>
+            <div className='mx-20 mt-20 grid place-items-center'>
                 {
                     !scanned ? (
                         <>
@@ -38,21 +46,22 @@ const Scan = () => {
                         </>
                     ) : (
                         <>
-                            <Checkbox size={100}></Checkbox>
-                            <h1 className="text-3xl text-bold" style={{fontFamily:"'Comfortaa'"}}>Gescannt!</h1>
+                            <img src={"/assets/sights/" + image}></img>
+                            <h1 className="text-3xl text-bold mt-5" style={{fontFamily:"'Comfortaa'"}}>{title}</h1>
+                            <p>{description}</p>
+                            <div className="flex">
+                                <Button variant='filled' color='blue' className='mt-10' onClick={() => router.push('/')}>
+                                    <ArrowBack></ArrowBack>
+                                    &nbsp;Zurück
+                                </Button>
+                                <Button variant='filled' color='green' className='ml-3 mt-10' onClick={() => setScanned(false)}>
+                                    <Repeat></Repeat>
+                                    &nbsp;Erneut Scannen
+                                </Button>
+                            </div>
                         </>
                     )
                 }
-                <div className="flex">
-                    <Button variant='filled' color='blue' className='mt-10' onClick={() => router.push('/')}>
-                        <ArrowBack></ArrowBack>
-                        &nbsp;Zurück
-                    </Button>
-                    <Button variant='filled' color='green' className='ml-3 mt-10' onClick={() => router.push('/')}>
-                        <Repeat></Repeat>
-                        &nbsp;Erneut Scannen
-                    </Button>
-                </div>
             </div>
         </>
     )

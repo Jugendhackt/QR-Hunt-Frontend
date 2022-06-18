@@ -1,7 +1,15 @@
+import { Button, Popover } from '@mantine/core';
 import Link from 'next/link';
-import { UserCircle } from 'tabler-icons-react';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { Camera, Qrcode, UserCircle } from 'tabler-icons-react';
+import { useUser } from '../lib/useUser';
 
 export function NavBar(){
+    const user = useUser();
+    const [menuOpened,setMenuOpened] = useState(false)
+    const router = useRouter();
+
     return (
         <>
             <div className='bg-white'>
@@ -12,7 +20,13 @@ export function NavBar(){
                         </div>
                     </Link>
                     <div className='float-right'>
-                        <UserCircle size={35}></UserCircle>
+                        {
+                            user?.loggedIn ? (
+                                <Link href="/dash"><UserCircle onClick={() => setMenuOpened(true)} size={35}></UserCircle></Link>
+                            ) : (
+                                <Qrcode size={35}></Qrcode>
+                            )
+                        }
                     </div>
                 </div>
             </div>
