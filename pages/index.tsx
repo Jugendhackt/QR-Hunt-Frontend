@@ -1,8 +1,11 @@
 import { Text } from "@mantine/core"
+import { NavBar } from "../components/NavBar"
 
 
 const IndexPage = () => (
-    <Text className="text-green-500">Hallo Welt</Text>
+    <>
+        <NavBar />
+    </>
 )
 
 export default IndexPage
