@@ -2,8 +2,6 @@ import { Button, Text } from "@mantine/core"
 import { useRouter } from "next/router"
 import { NavBar } from "../components/NavBar"
 
-
-
 const IndexPage = () => {
     const router = useRouter()
     return (<>
