@@ -15,7 +15,7 @@ const IndexPage = () => {
                 <p className="text-center my-5">QR-Hunt motiviert dich, wieder an die frische Luft zu gehen mit einem spaßigem Schnitzeljagd System. </p>
                 <div className="flex">
                     {
-                        user.loggedIn ? (
+                        user?.loggedIn ? (
                             <>
                                 <Button className="mt-5" style={{fontFamily:"'Comfortaa'"}} onClick={() => router.push("/dash")}>Zum Dashboard</Button>
                             </>
