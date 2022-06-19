@@ -1,8 +1,10 @@
 import { Button, Text } from "@mantine/core"
 import { useRouter } from "next/router"
 import { NavBar } from "../components/NavBar"
+import { useUser } from "../lib/useUser"
 
 const IndexPage = () => {
+    const user = useUser();
     const router = useRouter()
     return (
         <div className="bg-[url(/assets/background.png)] bg-no-repeat">
@@ -12,8 +14,16 @@ const IndexPage = () => {
                 <h1 className="mt-32 text-center text-3xl font-bold" style={{fontFamily:"'Comfortaa'"}}>Endlich rausgehen<br></br> mit einem Ziel</h1>
                 <p className="text-center my-5">QR-Hunt motiviert dich, wieder an die frische Luft zu gehen mit einem spaßigem Schnitzeljagd System. </p>
                 <div className="flex">
-                    <Button className="mt-5" style={{fontFamily:"'Comfortaa'"}} onClick={() => router.push("/signup")}>Account erstellen</Button>
-                    <Button className="ml-3 mt-5" style={{fontFamily:"'Comfortaa'"}} color="green" onClick={() => router.push("/login")}>Einloggen</Button>
+                    {
+                        user.loggedIn ? (
+                            <>
+                                <Button className="mt-5" style={{fontFamily:"'Comfortaa'"}} onClick={() => router.push("/dash")}>Zum Dashboard</Button>
+                            </>
+                        ) : <>
+                            <Button className="mt-5" style={{fontFamily:"'Comfortaa'"}} onClick={() => router.push("/signup")}>Account erstellen</Button>
+                            <Button className="ml-3 mt-5" style={{fontFamily:"'Comfortaa'"}} color="green" onClick={() => router.push("/login")}>Einloggen</Button>
+                        </>
+                    }
                 </div>
             </div>
             <div className="flex">
