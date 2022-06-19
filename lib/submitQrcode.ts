@@ -13,7 +13,7 @@ export function submitQrcode(content){
         method: 'POST',
         headers: myHeaders,
         body: JSON.stringify({
-            hash: hash(content)
+            hash: hash(content).toString()
         }),
     };
 

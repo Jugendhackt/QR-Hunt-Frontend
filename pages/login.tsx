@@ -1,4 +1,5 @@
 import { Button, Modal, TextInput } from "@mantine/core";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { Checkbox, UserPlus } from "tabler-icons-react";
 import { NavBar } from "../components/NavBar";
@@ -11,6 +12,7 @@ export default () => {
 
     const [error,setError] = useState("");
     const [confirmModalOpened, setconfirmModalOpened] = useState(false)
+    const router = useRouter()
 
     return (
         <>
@@ -51,14 +53,14 @@ export default () => {
                         if(res){
                             setError(res)
                         }else{
-                            setconfirmModalOpened(true)
+                            router.push("/dash")
                         }
                     }else{
                         setError("Bitte fülle alle Felder aus!")
                     }
                 }}>
                     <UserPlus></UserPlus>
-                    &nbsp;Account Erstellen
+                    &nbsp;Einloggen
                 </Button>
             </div>
         </>
