@@ -9,24 +9,24 @@ export async function login(username:string,password:string){
     myHeaders.append('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS')
     myHeaders.append('Access-Control-Allow-Headers','Content-Type, Authorization, Accept, Accept-Language, X-Authorization')
 
+
+    const pwhash = hash(password).toString()
     let requestOptions = {
         method: 'POST',
         headers: myHeaders,
         body: JSON.stringify({
             username: username,
-            password_hash: hash(password).toString()
+            password_hash: pwhash
         }),
     };
 
     const response = await (await fetch(config.api + '/login', requestOptions)).json()
 
-    if(response.error){
-        return response.error
+    if(response.message !== "success"){
+        return "Der Benutzer wurde nicht gefunden"
     }else{
-        if(response.token){
-            localStorage.setItem("auth-token", response.token)
-            localStorage.setItem("username", username)
-            return undefined
-        }
+        localStorage.setItem("auth-token", pwhash)
+        localStorage.setItem("username", username)
+        return undefined
     }
 }
